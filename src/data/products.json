@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "id": "581f61ab-d055-43ec-9083-60cad68623b9",
+    "title": "Memory Ram Patriot Viper 4 Blackout Series",
+    "photo": "ramPatriotViper.jpg",
+    "category": "RAM",
+    "price": 10,
+    "stock": 100
+  }
+]
