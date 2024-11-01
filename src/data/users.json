@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "id": "0adbee81-7866-43ac-9ec3-b4c60c359329",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRueick0BA5tVSQJFjPJ49GPHAl30OzLnSjvRT_rpGv784YF5bCSHJ7V_qFVQ3aDkM2qlQ&usqp=CAU",
+    "email": "nico@gmail.com",
+    "password": "88c22db7ff43895aa476ccf80a9dd592fb5fd3f903c5632f8aa6ddec3d3bed20",
+    "role": "0",
+    "cart": "cd1dc4a4-090d-47c8-bb8d-4a6e76e15bd2",
+    "salt": "9743c60642ff36adf462cfa8"
+  }
+]
