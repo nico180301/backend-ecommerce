@@ -7,5 +7,14 @@
     "role": "0",
     "cart": "cd1dc4a4-090d-47c8-bb8d-4a6e76e15bd2",
     "salt": "9743c60642ff36adf462cfa8"
+  },
+  {
+    "id": "c3d0974a-0713-4511-92da-1966d6dcffc0",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRueick0BA5tVSQJFjPJ49GPHAl30OzLnSjvRT_rpGv784YF5bCSHJ7V_qFVQ3aDkM2qlQ&usqp=CAU",
+    "email": "gaston@gmail.com",
+    "password": "0488189d003b1e6c916dc64ad3ffe310293aa756076adb9e9b352c40ec195769",
+    "role": "0",
+    "cart": "20490697-4cc9-4ae5-bade-799e8ee5b10b",
+    "salt": "fbacc89599a4fb47dd85eca4"
   }
 ]

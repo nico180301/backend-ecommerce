@@ -35,6 +35,7 @@ class UserManager {
       if (!users) {
         new Error("Fail at reading array.");
       } else {
+        console.log(users);
         return users;
       }
     } catch (error) {
@@ -77,7 +78,6 @@ class UserManager {
       let users = await fs.promises.readFile(this.path, "utf-8");
       users = JSON.parse(users);
       let user = users.find((each) => each.id === id);
-      console.log(user);
       if (!user) {
         throw new Error("User not found.");
       } else {
@@ -90,9 +90,13 @@ class UserManager {
   }
   async updateUser(id, data) {
     try {
+      console.log("ID recibido:", id);
       let users = await fs.promises.readFile(this.path, "utf-8");
       users = JSON.parse(users);
+
       let user = users.find((each) => each.id === id);
+      console.log("Usuarios:", user);
+
       if (user) {
         for (let prop in data) {
           user[prop] = data[prop];
@@ -112,7 +116,6 @@ class UserManager {
       throw new Error(error);
     }
   }
-
   async deleteUser(id) {
     try {
       let users = await fs.promises.readFile(this.path, "utf-8");

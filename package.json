@@ -6,7 +6,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "node --watch src/server.js"
+    "dev": "node --watch src/server.js",
+    "tailwind:css": "postcss src/public/styles/tailwind.css -o src/public/styles/style.css --watch"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,15 @@
     "nodemon": "^3.1.7"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "express-handlebars": "^8.0.1",
+    "mongoose": "^8.8.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "postcss": "^8.4.48",
+    "postcss-cli": "^11.0.0",
+    "socket.io": "^4.8.1",
+    "tailwindcss": "^3.4.14",
     "uuid": "^11.0.2"
   }
 }
