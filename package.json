@@ -3,16 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "node --watch src/server.js",
+    "start": "node .",
+    "dev": "concurrently \"node --watch .\" \"npm run tailwind:css\"",
     "tailwind:css": "postcss src/public/styles/tailwind.css -o src/public/styles/style.css --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "concurrently": "^9.1.0",
     "express": "^4.21.1",
     "nodemon": "^3.1.7"
   },

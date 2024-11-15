@@ -5,7 +5,8 @@ import productsRouter from "./products.view.js"
 const viewRouter = Router();
 
 //viewRouter.use("/users", usersRouter)
-viewRouter.get("/products",productsRouter)
+viewRouter.use("/",productsRouter)
+
 
 viewRouter.get("/",(req,res,next)=>{
     try {

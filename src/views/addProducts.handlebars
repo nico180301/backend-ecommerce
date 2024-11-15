@@ -1,0 +1,68 @@
+<main class="container mx-auto p-6 bg-white shadow-md rounded-lg">
+  <h1 class="text-2xl font-bold mb-4">Gestionar Productos</h1>
+  <div class="form-container flex space-x-8 p-6 bg-gray-50 shadow rounded-md">
+
+    <!-- Formulario para agregar productos -->
+    <div class="w-1/2">
+      <h2 class="text-xl font-semibold mb-4">Ingresar producto</h2>
+      <form id="form" class="space-y-4">
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-700">Producto:</label>
+          <input type="text" name="name" id="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"/>
+        </div>
+        <div>
+          <label for="category" class="block text-sm font-medium text-gray-700">Categoría:</label>
+          <input type="text" name="category" id="category" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"/>
+        </div>
+        <div>
+          <label for="price" class="block text-sm font-medium text-gray-700">Precio:</label>
+          <input type="number" name="price" id="price" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"/>
+        </div>
+        <div>
+          <label for="stock" class="block text-sm font-medium text-gray-700">Stock:</label>
+          <input type="number" name="stock" id="stock" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"/>
+        </div>
+        <div>
+          <input id="send" type="submit" value="AGREGAR" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+        </div>
+      </form>
+    </div>
+
+    <!-- Formulario para eliminar productos -->
+    <div class="w-1/2">
+      <h2 class="text-xl font-semibold mb-4">Eliminar producto</h2>
+      <form id="productFormDel" class="space-y-4">
+        <div>
+          <label for="productId" class="block text-sm font-medium text-gray-700">ID del Producto:</label>
+          <input type="text" name="productId" id="productId" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"/>
+        </div>
+        <div>
+          <input type="submit" value="ELIMINAR" class="w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"/>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lista de productos -->
+  <div class="product-table my-8">
+    <h2 class="text-2xl font-bold mb-4">Lista de productos</h2>
+    <table id="productTable" class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+      <thead class="bg-gray-200">
+        <tr>
+          <th class="px-4 py-2 border-b">ID</th>
+          <th class="px-4 py-2 border-b">Nombre</th>
+          <th class="px-4 py-2 border-b">Categoría</th>
+          <th class="px-4 py-2 border-b">Precio</th>
+          <th class="px-4 py-2 border-b">Stock</th>
+        </tr>
+      </thead>
+      <tbody id="productDetails">
+        <!-- Acá se mostrarán los productos -->
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/addProducts.js"></script>
