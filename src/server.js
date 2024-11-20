@@ -18,9 +18,12 @@ import socketCb from "./routes/index.socket.js";
 //http server
 const server = express();
 const httpServer = createServer(server)
-const socketServer = new Server(httpServer);
+const socketServer = new Server(httpServer,{
+    cors: {origin: "*"}
+})
 
-socketServer.on("conection", socketCb)
+//socketServer.on("conection", socketCb)
+socketCb(socketServer)
 
 const PORT = 8080;
 httpServer.listen(PORT, (req, res)=>{

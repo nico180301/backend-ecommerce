@@ -21,7 +21,13 @@ productsRouter.get("/addproducts", async(req,res,next)=>{
         return next(error);
     }
 })
-
+productsRouter.get("/prueba", async(req,res,next)=>{
+    try {
+        return res.render("prueba")
+    } catch (error) {
+        return next(error);
+    }
+})
 
 
 

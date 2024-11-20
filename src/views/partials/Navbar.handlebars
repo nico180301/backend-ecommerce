@@ -1,39 +1,44 @@
-     <header class="bg-white">
-        <nav class="flex justify-between items-center w-[92%]  mx-auto">
-            <div>
-                <a href="/"><img class="w-12 cursor-pointer" src="/img/favicon.png" alt="..."></a>
-            </div>
-                <div
-                class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full px-5 ">
-                <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
-                    <li>
-                        <a class="hover:text-gray-500" href="/users"> Users </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-500" href="/products"> Products </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-500" href="/addproducts"> Add Products</a>
-                    </li>
-                   {{!--  <li>
-                        <a class="hover:text-gray-500" href="#">Developers</a>
-                    </li> --}}
-                    <li>
-                        <a class="hover:text-gray-500" href="#">Cart</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="flex items-center gap-6">
-                <button  class="bg-[#09AC38] text-white px-5 py-2 rounded-full hover:bg-[#1e592f]"> <a href="/users/login"> Login</a> </button>
-                <button class="bg-[#09AC38] text-white px-5 py-2 rounded-full hover:bg-[#1e592f]"> <a href="/users/register">Sign in</a> </button>
-                <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
-            </div>
-            </nav>
-    </header>
-    <script>
-        const navLinks = document.querySelector('.nav-links')
-        function onToggleMenu(e){
-            e.name = e.name === 'menu' ? 'close' : 'menu'
-            navLinks.classList.toggle('top-[9%]')
-        }
-    </script>
+<header class="bg-white">
+    <nav class="flex justify-between items-center w-[92%] mx-auto py-2">
+        <!-- Logo -->
+        <div>
+            <a href="/">
+                <img class="w-12 cursor-pointer" src="/img/favicon.png" alt="Logo">
+            </a>
+        </div>
+        
+        <!-- Menú de navegación -->
+        <div class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full px-5 flex items-start md:top-0 md:left-0 md:bg-transparent">
+            <ul class="flex md:flex-row flex-col md:items-center items-start md:gap-[4vw] gap-8">
+                <li><a class="hover:text-gray-500" href="#">Users</a></li>
+                <li><a class="hover:text-gray-500" href="/products">Products</a></li>
+                <li><a class="hover:text-gray-500" href="/addproducts">Add Products</a></li>
+                <li><a class="hover:text-gray-500" href="#">Cart</a></li>
+            </ul>
+        </div>
+
+        <!-- Botones de Login y Register solo en pantallas grandes -->
+        <div class="hidden md:flex items-center gap-6">
+            <button class="bg-[#09AC38] text-white px-5 py-2 rounded-full hover:bg-[#1e592f]">
+                <a href="/users/login">Login</a>
+            </button>
+            <button class="bg-[#09AC38] text-white px-5 py-2 rounded-full hover:bg-[#1e592f]">
+                <a href="/users/register">Sign in</a>
+            </button>
+        </div>
+
+        <!-- Ícono de menú solo en pantallas pequeñas -->
+        <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+    </nav>
+</header>
+
+<script>
+    const navLinks = document.querySelector('.nav-links');
+    function onToggleMenu(e) {
+        e.name = e.name === 'menu' ? 'close' : 'menu';
+        navLinks.classList.toggle('top-0'); // Cambio en la propiedad top
+        navLinks.classList.toggle('top-16'); // Ajuste para agregar un margen superior
+    }
+</script>
+<script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
