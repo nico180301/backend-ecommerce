@@ -33,14 +33,14 @@ class ProductManager {
 
   async createProduct(data) {
     try {
-      if (!data.title || !data.category) {
+      if (!data.name || !data.category) {
         throw new Error(
-          "Not created product. Please complete TITLE and CATEGORY."
+          "Not created product. Please complete NAME and CATEGORY."
         );
       } else {
         const product = {
           id: uuidv4(),
-          title: data.title,
+          name: data.name,
           photo:
             data.photo ||
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9FfpvUvCBmocfYGwa-EdrH-GEnOaAfmS3aQ&usqp=CAU",

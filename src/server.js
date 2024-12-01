@@ -1,18 +1,48 @@
-import express from 'express';
-import userRouter from './routes/api/users.api.js';
-import productRouter from './routes/api/products.api.js';
-import cartRouter from './routes/api/carts.api.js';
+import express from "express";
+
+import { engine } from "express-handlebars";
+
+import __dirname from "./utils.js";
+
+import morgan from "morgan";
+
+import indexRouter from "./routes/index.routes.js";
+import errorHandler from "./middlewares/errorHandler.mid.js";
+import pathHandler from "./middlewares/pathHandler.mid.js";
+import path from "path";
+
+import { createServer } from 'http';
+import { Server } from "socket.io";
+import socketCb from "./routes/index.socket.js";
+
+//http server
+const server = express();
+const httpServer = createServer(server)
+const socketServer = new Server(httpServer,{
+    cors: {origin: "*"}
+})
+
+//socketServer.on("conection", socketCb)
+socketCb(socketServer)
 
 const PORT = 8080;
-const app = express();
-
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }));
-
-app.use("/api/users", userRouter);
-app.use("/api/products", productRouter)
-app.use("/api/carts", cartRouter)
-
-app.listen(PORT, (req, res)=>{
+httpServer.listen(PORT, (req, res)=>{
     console.log(`Servidor funcionando en el puerto: ${PORT}`);
 })
+
+//template engine
+server.engine("handlebars", engine());
+server.set("views", __dirname + "/views");
+server.set("view engine", "handlebars");
+
+server.use(express.static(path.join(__dirname + "/public")));
+
+//middlewares
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
+server.use(morgan("dev"));
+
+//endpoints
+server.use("/", indexRouter);
+server.use(errorHandler);
+server.use(pathHandler);

@@ -1,54 +1,16 @@
 import { Router } from "express";
-import productsManager from "../../Manager/ProductsManager.js";
+import {createProduct, readProduct, readProductId, updateProduct, deleteProduct} from "../../controllers/index.js"
 
-const productRouter = Router();
+const productsRouter = Router();
 
-productRouter.post("/", async (req, res) => {
-  try {
-    const prod = await productsManager.createProduct(req.body);
-    res.status(201).json(prod);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
+productsRouter.post("/", createProduct);
 
-productRouter.get("/", async (req, res) => {
-  try {
-    const prods = await productsManager.readProducts();
-    res.status(200).json(prods);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
+productsRouter.get("/", readProduct);
 
-productRouter.get("/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const prod = await productsManager.readProductId(id);
-    res.status(200).json(prod);
-  } catch (error) {
-    res.status(404).json({ message: error.message });
-  }
-});
+productsRouter.get("/:id", readProductId);
 
-productRouter.put("/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const prodUpd = await productsManager.updateProduct(id, req.body);
-    res.status(200).json(prodUpd);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
+productsRouter.put("/:id", updateProduct);
 
-productRouter.delete("/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const prodDel = await productsManager.deleteProduct(id);
-    res.status(200).json({ message: `product id: ${prodDel.id} deleted ok` });
-  } catch (error) {
-    res.status(404).json({ message: error.message });
-  }
-});
+productsRouter.delete("/:id", deleteProduct);
 
-export default productRouter;
+export default productsRouter;

@@ -1,0 +1,5 @@
+export * from "./product.create.js"
+export * from "./product.read.js"
+export * from "./product.readByID.js"
+export * from "./product.update.js"
+export * from "./product.delete.js"

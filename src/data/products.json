@@ -1,10 +1,34 @@
 [
   {
     "id": "581f61ab-d055-43ec-9083-60cad68623b9",
-    "title": "Memory Ram Patriot Viper 4 Blackout Series",
+    "name": "Memory Ram Patriot Viper 4 Blackout Series",
     "photo": "ramPatriotViper.jpg",
     "category": "RAM",
     "price": 10,
+    "stock": 100
+  },
+  {
+    "id": "3a027f14-9e63-4351-a2a1-8adad35d966c",
+    "name": "Placa de Video MSI Nvidia Geforce RTX 4080 Super Ventus 3x Oc 16Gb",
+    "photo": "graficaMSI4080SUPER.jpg",
+    "category": "Placas de Video",
+    "price": 1447999,
+    "stock": 100
+  },
+  {
+    "id": "78aeafb1-9a8b-41d0-aaf3-0207c51cd147",
+    "name": "Placa de Video Gigabyte Nvidia GeForce RTX 4080 Eagle 16Gb GDDR6X",
+    "photo": "graficaGIGABYTE4080SUPER.jpg",
+    "category": "Placas de Video",
+    "price": 1449999,
+    "stock": 100
+  },
+  {
+    "id": "244e6c40-703e-4cb6-aa31-79ef0c6d2c6c",
+    "name": "Placa de Video Gigabyte Nvidia GeForce RTX 4090",
+    "photo": "graficaGIGABYTE4090.jpg",
+    "category": "Placas de Video",
+    "price": 1449999,
     "stock": 100
   }
 ]

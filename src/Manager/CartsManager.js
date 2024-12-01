@@ -56,7 +56,7 @@ class CartManager {
       throw new Error(error);
     }
   }
-  //Terminar update
+  
   async addProdInCart(idCart, idProd) {
     try {
       const prodExists = await productsManager.readProductId(idProd);
