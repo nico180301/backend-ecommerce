@@ -16,6 +16,10 @@
           <label for="category" class="block text-sm font-medium text-gray-700">Categoría:</label>
           <input type="text" name="category" id="category" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"/>
         </div>
+        <div>
+          <label for="photo" class="block text-sm font-medium text-gray-700">URL Photo:</label>
+          <input type="text" name="photo" id="photo" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"/>
+        </div>
         
         <div>
           <label for="stock" class="block text-sm font-medium text-gray-700">Stock:</label>
@@ -36,7 +40,7 @@
       <h2 class="text-xl font-semibold mb-4">Eliminar producto</h2>
       <form id="productFormDel" class="space-y-4">
         <div>
-          <label for="productId" class="block text-sm font-medium text-gray-700">ID del Producto:</label>
+          <label for="productId" class="block text-sm font-medium text-gray-700">Data Base ID:</label>
           <input type="text" name="productId" id="productId" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"/>
         </div>
         <div>
@@ -53,11 +57,12 @@
     <table id="productTable" class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
       <thead class="bg-gray-200">
         <tr>
-          <th class="px-2 py-1 border-b text-sm">ID</th>
+          <th class="px-2 py-1 border-b text-sm">Data Base ID</th>
           <th class="px-2 py-1 border-b text-sm">Nombre</th>
           <th class="px-2 py-1 border-b text-sm">Categoría</th>
           <th class="px-2 py-1 border-b text-sm">Precio</th>
           <th class="px-2 py-1 border-b text-sm">Stock</th>
+          <th class="px-2 py-1 border-b text-sm">Product-ID</th>
         </tr>
       </thead>
       <tbody id="productTableBody" class="text-sm">

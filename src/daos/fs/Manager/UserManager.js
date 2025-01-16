@@ -5,7 +5,7 @@ import cartsManager from "./CartsManager.js";
 
 class UserManager {
   constructor() {
-    this.path = "./src/data/users.json";
+    this.path = "./src/daos/fs/data/users.json";
     this.init();
   }
 

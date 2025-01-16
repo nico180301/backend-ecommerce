@@ -1,4 +1,4 @@
-import cartsManager from "../../Manager/CartsManager.js";
+import cartsManager from "../../daos/fs/Manager/CartsManager.js";
 
 export const addProdInCart = async (req, res) => {
   try {

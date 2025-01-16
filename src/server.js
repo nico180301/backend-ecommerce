@@ -14,6 +14,7 @@ import path from "path";
 import { createServer } from 'http';
 import { Server } from "socket.io";
 import socketCb from "./routes/index.socket.js";
+import { initMongoDB } from "./daos/mongodb/db.conection.js";
 
 //http server
 const server = express();
@@ -46,3 +47,12 @@ server.use(morgan("dev"));
 server.use("/", indexRouter);
 server.use(errorHandler);
 server.use(pathHandler);
+
+//MongoDB
+initMongoDB()
+    .then(()=> {
+        console.log('Conectado a MongoDB');
+    })
+    .catch((error) => {
+        console.error('Error al conectar a MongoDB:', error);
+    });

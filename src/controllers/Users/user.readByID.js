@@ -1,4 +1,4 @@
-import usersManager from "../../Manager/UserManager.js";
+import usersManager from "../../daos/fs/Manager/UserManager.js";
 
 export const readUserId = async (req, res) => {
   try {

@@ -4,7 +4,7 @@ import productsManager from "./ProductsManager.js";
 
 class CartManager {
   constructor() {
-    this.path = "./src/data/carts.json";
+    this.path = "./src/daos/fs/data/carts.json";
     this.init();
   }
   init() {

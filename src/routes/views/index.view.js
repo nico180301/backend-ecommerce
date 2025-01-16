@@ -1,10 +1,10 @@
 import { Router } from "express";
-//import usersRouter from "./users.view.js";
+import usersRouter from "./users.view.js";
 import productsRouter from "./products.view.js"
 
 const viewRouter = Router();
 
-//viewRouter.use("/users", usersRouter)
+viewRouter.use("/users", usersRouter)
 viewRouter.use("/",productsRouter)
 
 
