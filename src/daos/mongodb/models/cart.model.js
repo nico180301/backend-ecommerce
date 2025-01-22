@@ -1,8 +1,6 @@
 import { Schema, model } from 'mongoose';
-import { v4 as uuidv4 } from "uuid";
 
 const cartSchema = new Schema({
-    cartId: { type: String, unique: true, default: uuidv4() },
     user: {
         type: Schema.Types.ObjectId,
         ref: 'user',

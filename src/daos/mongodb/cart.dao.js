@@ -1,5 +1,5 @@
-import DaoMongoDB from "./mongo.dao";
-import { cartModel } from "./models/cart.model";
+import DaoMongoDB from "./mongo.dao.js";
+import { cartModel } from "./models/cart.model.js";
 import { Error } from "mongoose";
 
 class CartDaoMongoDB extends DaoMongoDB {
@@ -14,9 +14,20 @@ class CartDaoMongoDB extends DaoMongoDB {
       throw new Error(error);
     }
   }
+  async readCart() {
+    try {
+      const cart = await cartModel.find();
+      return cart;
+    } catch (error) {
+      throw new Error("Cart not found");
+    }
+  }
+  
+
   async readCartByID(id) {
     try {
       const cart = await cartModel.findById(id);
+
       if (!cart) {
         throw new Error("Cart not found");
       }
@@ -47,6 +58,19 @@ class CartDaoMongoDB extends DaoMongoDB {
         { new: true }
       );
       if (!cart) throw new Error("Cart not found");
+      return cart;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  async deleteCart(id) {
+    try {
+      const cart = await cartModel.findByIdAndDelete(id);
+      if (!cart) {
+        throw new Error("Error deleting cart", 500);
+      }
+      console.log(`Cart deleted:${id}`);
       return cart;
     } catch (error) {
       throw new Error(error);

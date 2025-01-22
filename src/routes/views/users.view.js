@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { readUser, readUserId } from "../../controllers/index.js";
+import { readUser, readUserById } from "../../controllers/index.js";
 
 const usersRouter = Router();
 
@@ -33,7 +33,7 @@ usersRouter.get("/register", async(req,res,next)=>{
 usersRouter.get("/:uid", async(req,res,next)=>{
     try {
         const {uid} = req.params
-        const one= await readUserId(uid);
+        const one= await readUserById(uid);
         return res.render("userdatails", {user: one})
     } catch (error) {
         return next(error)

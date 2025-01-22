@@ -18,7 +18,7 @@ class UserDaoMongoDB extends DaoMongoDB {
 
   async readUsers() {
     try {
-      const users = await userModel.find();
+      const users = await userModel.find().populate('cart');
       return users;
     } catch (error) {
       throw new Error(error);
@@ -27,7 +27,7 @@ class UserDaoMongoDB extends DaoMongoDB {
 
   async readUsersByID(id) {
     try {
-      const users = await userModel.findById(id);
+      const users = await userModel.findById(id).populate('cart');
       return users;
     } catch (error) {
       throw new Error(error);

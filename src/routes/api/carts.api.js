@@ -1,12 +1,12 @@
 import { Router } from "express";
-import {createCart, readCart, readCartId, addProdInCart ,updateCart, deleteCart} from "../../controllers/index.js"
+import {createCart, readCart, readCartByID, addProdInCart ,updateCart, deleteCart} from "../../controllers/index.js"
 const cartsRouter = Router();
 
 cartsRouter.post("/", createCart);
 
 cartsRouter.get("/", readCart);
 
-cartsRouter.get("/:cid", readCartId);
+cartsRouter.get("/:cid", readCartByID);
 
 cartsRouter.post("/:idCart/product/:idProd", addProdInCart);
 

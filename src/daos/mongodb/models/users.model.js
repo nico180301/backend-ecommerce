@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 import mongoosePaginate from "mongoose-paginate-v2"
 import { validateEmail } from "../../../utils/email.utils.js";
-import { hashPassword } from "../utils/password.utils.js";
+import { hashPassword } from "../../../utils/password.utils.js";
 
 const userSchema = new Schema({
   first_name: {
@@ -12,28 +12,28 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  age: {
+    type: Number,
+    required: true,
+  },
   email: {
     type: String,
     required: true,
     unique: true,
   },
-  age: {
-    type: Number,
-    required: true,
-  },
   password: {
     type: String,
     required: true,
-  },
-  cartId: {
-    type: Schema.Types.ObjectId,
-    ref: "cart",
   },
   role: {
     type: String,
     required: true,
     enum: ["admin", "user"],
     default: "user",
+  },
+  cart: {
+    type: Schema.Types.ObjectId,
+    ref: "cart",
   },
 });
 
