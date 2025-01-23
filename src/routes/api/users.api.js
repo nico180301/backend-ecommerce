@@ -1,10 +1,10 @@
 import { Router } from "express";
-import uploader from "../../middlewares/multer.mid.js";
-import { createUser, readUser, readUserById, updateUser, deleteUser } from "../../controllers/index.js";
+//import uploader from "../../middlewares/multer.mid.js";
+import {  readUser, readUserById, updateUser, deleteUser } from "../../controllers/index.js";
 
 const usersRouter = Router();
 
-usersRouter.post("/", uploader.single("photo"),createUser);
+//usersRouter.post("/", uploader.single("photo"),createUser);
 
 usersRouter.get("/", readUser);
 

@@ -16,12 +16,18 @@ import { Server } from "socket.io";
 import socketCb from "./routes/index.socket.js";
 import { initMongoDB } from "./daos/mongodb/db.conection.js";
 
+import passport from "passport";
+import { initializePassport } from "./config/passport.config.js";
+import cookieParser from "cookie-parser";
+
 //http server
 const server = express();
 const httpServer = createServer(server)
 const socketServer = new Server(httpServer,{
     cors: {origin: "*"}
 })
+
+
 
 //socketServer.on("conection", socketCb)
 socketCb(socketServer)
@@ -30,6 +36,10 @@ const PORT = 8080;
 httpServer.listen(PORT, (req, res)=>{
     console.log(`Servidor funcionando en el puerto: ${PORT}`);
 })
+
+server.use(cookieParser());
+initializePassport();
+server.use(passport.initialize());
 
 //template engine
 server.engine("handlebars", engine());

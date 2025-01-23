@@ -40,20 +40,6 @@ const userSchema = new Schema({
 //Plugin de paginación
 userSchema.plugin(mongoosePaginate);
 
-// userSchema.pre("save", function (next) {
-//   const user = this;
-
-//   // Validate email
-//   const emailRegex = /\S+@\S+\.\S+/;
-//   const isValidEmail = emailRegex.test(user.email);
-
-//   if (!isValidEmail) return next(new Error("Invalid email"));
-
-//   next();
-// });
-
-
-
 userSchema.pre("save", async function (next) {
   const user = this;
 
