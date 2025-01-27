@@ -1,16 +1,9 @@
-<main class="container mx-auto pt-0 p-6 bg-white shadow-md rounded-lg">
+{{!-- <main class="container mx-auto pt-0 p-6 bg-white shadow-md rounded-lg">
   <div class="product-table my-8">
     <h2 class="text-xl font-bold mb-4">Lista de productos</h2>
     <div class="overflow-x-auto">
       <table id="productTable" class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md text-sm">
-        <thead class="bg-gray-200">
-          <tr>
-            <th class="px-2 py-1 border-b text-left">Nombre</th>
-            <th class="px-2 py-1 border-b text-left">Precio</th>
-            <th class="px-2 py-1 border-b text-left">Stock</th>
-            <th class="px-2 py-1 border-b text-left">Categoría</th>
-          </tr>
-        </thead>
+        
         <tbody id="productTableBody">
           <!-- Aquí se mostrarán los productos -->
         </tbody>
@@ -20,4 +13,16 @@
 </main>
 
 <script src="/socket.io/socket.io.js"></script>
-<script src="/js/products.js"></script>
+<script src="/js/products.js"></script> --}}
+
+<main class="container mx-auto pt-0 p-6 bg-white shadow-md rounded-lg">
+  <div class="product-table my-8">
+    <h2 class="text-xl font-bold mb-4">Lista de productos</h2>
+    <div id="productTableBody" class="flex flex-wrap -m-2">
+      {{!-- Aquí se mostrarán los productos --}}
+    </div>
+  </div>
+</main>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/products.js"></script> 

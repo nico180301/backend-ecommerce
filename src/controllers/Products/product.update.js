@@ -1,4 +1,4 @@
-import productsManager from "../../Manager/ProductsManager.js";
+import productsManager from "../../daos/fs/Manager/ProductsManager.js";
 
 export const updateProduct = async (req, res) => {
   try {

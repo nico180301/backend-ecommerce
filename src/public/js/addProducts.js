@@ -5,6 +5,7 @@ const formDel = document.getElementById('productFormDel');
 
 const prodName = document.getElementById('name');
 const prodCategory = document.getElementById('category');
+const prodPhoto = document.getElementById('photo')
 const prodStock = document.getElementById('stock');
 const prodPrice = document.getElementById('price');
 
@@ -19,20 +20,46 @@ formAdd.onsubmit = (e) => {
   e.preventDefault();
 
   const name = prodName.value;
-  const price = prodPrice.value;
-  const stock = prodStock.value;
   const category = prodCategory.value;
+  const photo = prodPhoto.value
+  const stock = prodStock.value;
+  const price = prodPrice.value;
 
-  socketClient.emit('newProd', { name, price, stock, category });
-// Alerta de éxito al agregar un producto
-Swal.fire({
-  icon: 'success',
-  title: '¡Producto agregado!',
-  text: `El producto ${name} ha sido agregado exitosamente.`,
-});
+//   socketClient.emit('newProd', { name, category, photo, stock, price});
+// // Alerta de éxito al agregar un producto
+// Swal.fire({
+//   icon: 'success',
+//   title: '¡Producto agregado!',
+//   text: `El producto ${name} ha sido agregado exitosamente.`,
+// });
 
-formAdd.reset();
+// formAdd.reset();
+// };
+const newProduct = { name, category, photo, stock, price }; 
+// Validar campos 
+const missingFields = []; 
+  for (const key in newProduct) { 
+    if (newProduct[key].trim() === '') { 
+      missingFields.push(key); 
+    } 
+  }
+  if (missingFields.length > 0) { 
+    Swal.fire({ 
+      icon: 'warning', 
+      title: 'Campos incompletos', 
+      text: `Por favor, completa los siguientes campos: ${missingFields.join(', ')}` 
+    }); 
+  } else { socketClient.emit('newProd', newProduct); 
+    // Alerta de éxito al agregar un producto 
+    Swal.fire({ 
+      icon: 'success', 
+      title: '¡Producto agregado!', 
+      text: `El producto ${name} ha sido agregado exitosamente.`, 
+    }); 
+    formAdd.reset(); 
+  } 
 };
+
 
 /* Eliminar un producto */
 // Captura el iD del producto a eliminar
@@ -41,7 +68,7 @@ formDel.onsubmit = (e) => {
 
   const productId = prodIdToDelete.value;
 
-  socketClient.emit('deleteProd', { id: productId });
+  socketClient.emit('deleteProd', { _id: productId });
   // Alerta de éxito al eliminar un producto
   Swal.fire({
     icon: 'warning',
@@ -63,11 +90,12 @@ socketClient.on('productList', (products) => {
       // Crea las celdas de la tabla con la información del producto
       row.innerHTML = `
           <tr>
-          <td class="px-4 py-2 border-b">${product.id}</td>
+          <td class="px-4 py-2 border-b">${product._id}</td>
           <td class="px-4 py-2 border-b">${product.name}</td>
+          <td class="px-4 py-2 border-b">${product.category}</td>
           <td class="px-4 py-2 border-b">$${product.price}</td>
           <td class="px-4 py-2 border-b">${product.stock}</td>
-          <td class="px-4 py-2 border-b">${product.category}</td>
+          <td class="px-4 py-2 border-b">${product.item_code}</td>
           </tr>
       `;
 
